@@ -14,9 +14,6 @@ Welcome to my custom Home Assistant theme! This theme provides a unique visual e
 ## Installation Requirements
 To ensure that this theme works flawlessly, you must have the `card-mod` add-on from HACS installed. 
 
-## Required
-1. **Install `card-mod`**: If you haven't already, install the `card-mod` add-on from HACS.
-
 
 ## Installation via HACS
 
