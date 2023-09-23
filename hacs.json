@@ -1,0 +1,7 @@
+{
+    "name": "FNS Template HA",
+    "content_in_root": true,
+    "filename": "fns.yaml",
+    "country": "CZ",
+    "render_readme": true
+}
