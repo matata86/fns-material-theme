@@ -3,6 +3,8 @@
 ## Introduction
 Welcome to my custom Home Assistant theme! This theme provides a unique visual experience, leveraging different Material Design colors, to give your Home Assistant a refreshing look. 
 
+![Theme Screenshot](./screenshots/screenshot-1.png)
+
 ## Features
 1. **Material Design Colors**: Different Material Design colors have been used to revamp the look and feel of Home Assistant.
 2. **Custom Thermostat Card**: The thermostat card has been restyled and presented in a new version, now appearing in a modal window for an enhanced user experience.
