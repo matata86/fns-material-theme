@@ -7,7 +7,7 @@ Welcome to my custom Home Assistant theme! This theme provides a unique visual e
 
 ## Features
 1. **Material Design Colors**: Different Material Design colors have been used to revamp the look and feel of Home Assistant.
-2. **Custom Thermostat Card**: The thermostat card has been restyled and presented in a new version, now appearing in a modal window for an enhanced user experience.
+2. **Restyled Climate Card**: A new version has been introduced, and thermostats in lovelace have been restyled to better match this new design. This design is typically displayed in a modal window, offering an improved user experience.
 3. **Restyled Badges**: Unlike the traditional round badges, these are rectangular with rounded corners. These badges are not just aesthetically pleasing but are also functional. Their color changes automatically based on the state of the entity they represent.
 4. **Enhanced Borders**: The badges now come with a thicker border, making them stand out and providing a more defined look.
 
