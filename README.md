@@ -3,7 +3,7 @@
 ## Introduction
 Welcome to my custom Home Assistant theme! This theme provides a unique visual experience, leveraging different Material Design colors, to give your Home Assistant a refreshing look. 
 
-![Theme Screenshot](./screenshots/screenshot-1.png)
+![Theme Screenshot](https://i0.wp.com/full-net.cz/wp-content/uploads/2018/02/66.jpg)
 
 ## Features
 1. **Material Design Colors**: Different Material Design colors have been used to revamp the look and feel of Home Assistant.
