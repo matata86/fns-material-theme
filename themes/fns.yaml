@@ -11,16 +11,12 @@ fns:
     theme-gray-light: '#ececec'
     
     ###CLIMATE
-    climate-blue: 'rgba(3,169,244,1)'
-    climate-blue-light: 'rgba(3,169,244,.50)'
-    climate-red: 'rgba(219,68,55,1)'
-    climate-red-light: 'rgba(219,68,55,.50)'
-    climate-black: 'rgba(0,0,0,1)'
-    climate-black-light: 'rgba(0,0,0,.50)'
-    climate-orange: 'rgba(255,152,0,1)'
-    climate-orange-light: 'rgba(255,152,0,.50)'
-    climate-yellow: 'rgba(253,216,53,1)'
-    climate-yellow-light: 'rgba(235,216,53,.50)'
+    climate-blue: '3,169,244'
+    climate-red: '219,68,55'
+    climate-black: '0,0,0'
+    climate-orange: '255,152,0'
+    climate-yellow: '253,216,53'
+    climate-gray: '158,158,158'
     
     ####DEFAULT HA COLOR
     success-color: "var(--theme-green)"
@@ -98,7 +94,7 @@ fns:
               stroke: white !important;
                 }
             .overflow {
-                stroke: var(--climate-orange) !important;
+                stroke: rgb(var(--climate-orange)) !important;
                 stroke-width: 18;
                 }
             .slider path.path {
@@ -107,16 +103,16 @@ fns:
             
         .: | 
         
-            ha-card {
+            ha-card.type-thermostat {
                 --round-slider-path-width: 18px;    
-                --mode-color: var(--climate-orange-light) !important
+                --mode-color: rgba(var(--climate-orange), .5) !important
             }
             
-            ha-card text[dx="1"]{
+            ha-card.type-thermostat text[dx="1"]{
                 font-size: 12px !important;
             }
             
-            ha-card text tspan {
+            ha-card.type-thermostat text tspan {
                 font-size: 3px !important;
             }
             
@@ -139,8 +135,14 @@ fns:
             
             ha-card.type-custom-xiaomi-vacuum-map-card .tile-wrapper {
               border-radius: 0 !important;
-              background-color: var(--climate-gray-light) !important;
+              background-color: rbga(var(--climate-gray), .5) !important;
             }
+            
+            {% if state_attr(config.entity, 'hvac_action') == 'heating' %}
+                round-slider {
+                    background: radial-gradient(circle, rgba(var(--climate-orange), .2) 0%, rgba(255,255,255,0) 65%) !important;
+                }
+            {% endif %}
             
 
 
