@@ -1,6 +1,5 @@
 {
-    "name": "FNS Template HA",
-    "description": "Theme provides a unique visual experience, leveraging different Material Design colors, to give your Home Assistant a refreshing look.",
+    "name": "FNS Template HA"
     "content_in_root": false,
     "filename": "fns.yaml",
     "country": "CZ",
