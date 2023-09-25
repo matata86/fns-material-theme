@@ -17,7 +17,7 @@ Welcome to my custom Home Assistant theme! This theme provides a unique visual e
   
 ## Badges States
 
-![Badges State](./cesta/k/badges.png)
+![Badges State](./themes/screenshots/badges.png)
 The badges change color based on the entity's state.
 
 ## Features
