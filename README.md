@@ -7,11 +7,11 @@ Welcome to my custom Home Assistant theme! This theme provides a unique visual e
 ![Theme Screenshot](./themes/screenshots/screenshot-1.png)
 
 ### Thermostat States
-- **Idle State**:  
+**Idle State**:  
 
   ![Idle State](./themes/screenshots/idle.png)  
   
-- **Heating State**:  
+**Heating State**:  
 
   ![Heating State](./themes/screenshots/heating.png)
 
