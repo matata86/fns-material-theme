@@ -135,13 +135,15 @@ fns:
             
             ha-card.type-custom-xiaomi-vacuum-map-card .tile-wrapper {
               border-radius: 0 !important;
-              background-color: rbga(var(--climate-gray), .5) !important;
+              background-color: rgba(var(--climate-gray), .2) !important;
             }
             
-            {% if state_attr(config.entity, 'hvac_action') == 'heating' %}
-                round-slider {
-                    background: radial-gradient(circle, rgba(var(--climate-orange), .2) 0%, rgba(255,255,255,0) 65%) !important;
-                }
+            {% if config.entity %}
+                {% if state_attr(config.entity, 'hvac_action') == 'heating' %}
+                    round-slider {
+                        background: radial-gradient(circle, rgba(var(--climate-orange), .2) 0%, rgba(255,255,255,0) 65%) !important;
+                    }
+                {% endif %}
             {% endif %}
             
 
