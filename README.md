@@ -14,6 +14,11 @@ Welcome to my custom Home Assistant theme! This theme provides a unique visual e
 **Heating State**:  
 
   ![Heating State](./themes/screenshots/heating.png)
+  
+## Badges States
+
+![Badges State](./cesta/k/badges.png)
+The badges change color based on the entity's state.
 
 ## Features
 1. **Material Design Colors**: Different Material Design colors have been used to revamp the look and feel of Home Assistant.
