@@ -76,6 +76,7 @@ fns:
     
     
     
+    
     round-slider-path-color: "var(--theme-yellow)"
 
     ha-card-border-radius: 9px ## or whatever radius you want
@@ -132,6 +133,16 @@ fns:
             ha-card.danger .name{
                 color: white !important;
             } 
+            
+            ha-card.success {
+                background: var(--success-color);
+                color: white !important;
+                --card-mod-icon-color: white !important;
+            } 
+            
+            ha-card.success .name{
+                color: white !important;
+            }
             
             ha-card.type-custom-xiaomi-vacuum-map-card .tile-wrapper {
               border-radius: 0 !important;
