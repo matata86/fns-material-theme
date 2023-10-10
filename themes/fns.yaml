@@ -117,20 +117,24 @@ fns:
                 font-size: 3px !important;
             }
             
-            ha-card.warning {
+            ha-card.alert-warning {
                 background: var(--warning-color);
-                font-weight: bold;
                 color: white !important;
                 --card-mod-icon-color: white !important;
+                width: 100% !important;
             } 
             
-            ha-card.danger {
+            ha-card.alert-warning .name{
+                color: white !important;
+            } 
+            
+            ha-card.alert-danger {
                 background: var(--error-color);
                 color: white !important;
                 --card-mod-icon-color: white !important;
             } 
             
-            ha-card.danger .name{
+            ha-card.alert-danger .name, ha-card.alert-danger .measurement{
                 color: white !important;
             } 
             
@@ -148,6 +152,21 @@ fns:
               border-radius: 0 !important;
               background-color: rgba(var(--climate-gray), .2) !important;
             }
+            
+            {% if is_state('vacuum.bobik','cleaning') %}
+            ha-card.type-custom-xiaomi-vacuum-map-card .tile-wrapper:first-of-type {
+              background: linear-gradient(to right, rgba(var(--climate-gray), .2) 0%, rgba(var(--climate-gray), .2) {{ states('sensor.roborock_s8_cleaning_progress') }}%, rgba(var(--climate-gray), .0) {{ states('sensor.roborock_s8_cleaning_progress') }}%, rgba(var(--climate-gray), .0) 100%);
+              position:relative;
+            }
+            
+            ha-card.type-custom-xiaomi-vacuum-map-card .tile-wrapper:first-of-type .tile-title::after {
+              position:absolute;
+              top: 11px;
+              right:11px;
+              content: "{{states('sensor.roborock_s8_cleaning_progress')}}%";
+            }
+            {% endif %}
+            
             
             {% if config.entity %}
                 {% if state_attr(config.entity, 'hvac_action') == 'heating' %}
@@ -203,5 +222,3 @@ fns:
             climate-gray-light: '#ececec'
         dark:
             climate-gray-light: '#292929'
-            
-            
