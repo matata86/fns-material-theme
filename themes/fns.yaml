@@ -17,6 +17,7 @@ fns:
     climate-orange: '255,152,0'
     climate-yellow: '253,216,53'
     climate-gray: '158,158,158'
+    climate-green: '76, 175, 80'
     
     ####DEFAULT HA COLOR
     success-color: "var(--theme-green)"
@@ -104,7 +105,7 @@ fns:
             
         .: | 
         
-            ha-card.type-thermostat {
+            ha-card.type-thermostat, ha-card.type-humidifier {
                 --round-slider-path-width: 18px;    
                 --mode-color: rgba(var(--climate-orange), .5) !important
             }
@@ -148,6 +149,9 @@ fns:
                 color: white !important;
             }
             
+            
+            
+            
             ha-card.type-custom-xiaomi-vacuum-map-card .tile-wrapper {
               border-radius: 0 !important;
               background-color: rgba(var(--climate-gray), .2) !important;
@@ -167,14 +171,22 @@ fns:
             }
             {% endif %}
             
+            ha-card.type-custom-xiaomi-vacuum-map-card .tile-wrapper:nth-of-type(2) {
+              background: linear-gradient(to right, rgba(var(--climate-gray), .2) 0%, rgba(var(--climate-gray), .2) {{ states('sensor.dustbin_vacuum') }}%, rgba(var(--climate-gray), .0) {{ states('sensor.dustbin_vacuum') }}%, rgba(var(--climate-gray), .0) 100%);
+              position:relative;
+            }
             
-            {% if config.entity %}
+            
+                        
+            {% if config is defined and config.entity is defined and state_attr(config.entity, 'hvac_action') is not none %}
                 {% if state_attr(config.entity, 'hvac_action') == 'heating' %}
                     round-slider {
                         background: radial-gradient(circle, rgba(var(--climate-orange), .2) 0%, rgba(255,255,255,0) 65%) !important;
                     }
                 {% endif %}
             {% endif %}
+
+
             
 
 
@@ -222,3 +234,5 @@ fns:
             climate-gray-light: '#ececec'
         dark:
             climate-gray-light: '#292929'
+            
+            
