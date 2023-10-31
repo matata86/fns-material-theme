@@ -58,6 +58,7 @@ fns:
     state-lock-pending-color: '#FF9800' # Orange
     state-media_player-active-color: "var(--theme-yellow)"
     state-media_player-on-color: "var(--theme-yellow)"
+    state-media_player-idle-color: "#44739e"
     state-person-home-color: "var(--theme-green)"
     state-person-zone-color: "var(--theme-blue)"
     state-remote-color: "var(--theme-blue)"
@@ -79,7 +80,8 @@ fns:
     
     
     round-slider-path-color: "var(--theme-yellow)"
-
+    
+    ha-card-border-width: 0px;
     ha-card-border-radius: 9px ## or whatever radius you want
     ha-card-border-color: rgba(0,0,0,0) ## 
     box-shadow: "0 .125rem .25rem rgba(0,0,0,.075)"
@@ -95,19 +97,36 @@ fns:
               stroke-width: 14;
               stroke: white !important;
                 }
+                
+            {% if config is defined and config.entity is defined and state_attr(config.entity, 'hvac_action') is not none %}
             .overflow {
                 stroke: rgb(var(--climate-orange)) !important;
                 stroke-width: 18;
                 }
+            {% endif %}
+            
+            {% if config is defined and config.entity is defined and state_attr(config.entity, 'action') is not none %}
+            .overflow {
+                stroke: rgb(var(--climate-blue)) !important;
+                stroke-width: 18;
+                }
+            {% endif %}
+            
+            
             .slider path.path {
                 stroke: var(--climate-gray-light);
                 }
             
         .: | 
-        
-            ha-card.type-thermostat, ha-card.type-humidifier {
-                --round-slider-path-width: 18px;    
+            
+            ha-card.type-thermostat {
+                --round-slider-path-width: 18px;
                 --mode-color: rgba(var(--climate-orange), .5) !important
+            }
+            
+             ha-card.type-humidifier {
+                --round-slider-path-width: 18px;
+                --mode-color: rgba(var(--climate-blue), .5) !important
             }
             
             ha-card.type-thermostat text[dx="1"]{
@@ -149,9 +168,6 @@ fns:
                 color: white !important;
             }
             
-            
-            
-            
             ha-card.type-custom-xiaomi-vacuum-map-card .tile-wrapper {
               border-radius: 0 !important;
               background-color: rgba(var(--climate-gray), .2) !important;
@@ -176,7 +192,6 @@ fns:
               position:relative;
             }
             
-            
                         
             {% if config is defined and config.entity is defined and state_attr(config.entity, 'hvac_action') is not none %}
                 {% if state_attr(config.entity, 'hvac_action') == 'heating' %}
@@ -185,7 +200,20 @@ fns:
                     }
                 {% endif %}
             {% endif %}
-
+            
+            {% if config is defined and config.entity is defined and state_attr(config.entity, 'action') is not none %}
+                {% if state_attr(config.entity, 'action') == 'drying' %}
+                    round-slider {
+                        background: radial-gradient(circle, rgba(var(--climate-blue), .2) 0%, rgba(255,255,255,0) 65%) !important;
+                    }
+                {% endif %}
+            {% endif %}
+            
+            {% if config is defined and config.entity is defined and is_state(config.entity, 'off') %}
+                ha-card.type-tile hui-tile-features {
+                    display: none;
+                }
+            {% endif %}
 
             
 
